@@ -12,7 +12,7 @@ function drawTasks(taskList: Task[], parent: HTMLElement): void {
         let wrapper = document.createElement("div")
         wrapper.classList.add("task")
 
-        let nameElem = document.createElement("h4")
+        let nameElem = document.createElement("h3")
         nameElem.classList.add("taskName")
         nameElem.innerHTML = task.name
 

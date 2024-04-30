@@ -6,7 +6,7 @@ function drawTasks(taskList, parent) {
         //creating and defining elements
         let wrapper = document.createElement("div");
         wrapper.classList.add("task");
-        let nameElem = document.createElement("h4");
+        let nameElem = document.createElement("h3");
         nameElem.classList.add("taskName");
         nameElem.innerHTML = task.name;
         let checkboxElem = document.createElement("input");
