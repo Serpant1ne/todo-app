@@ -18,7 +18,7 @@ function drawTasks(taskList: Task[], parent: HTMLElement): void {
 
         let checkboxElem = document.createElement("input")
         checkboxElem.type = "checkbox"
-        checkboxElem.classList.add("taskCheckbox")
+        checkboxElem.classList.add("checkbox")
         checkboxElem.checked = task.done
         if(checkboxElem){
             wrapper.classList.add("done")

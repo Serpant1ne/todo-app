@@ -4,9 +4,11 @@ $white: #f8fafc;
 $black: #020617;
 $accent-color: #1e3a8a;
 $form-height: 50px;
-$form-border-radius: 8px;
+$border-radius: 8px;
 $form-padding: 8px;
-$form-border: 1px solid $accent-color;
+$normal-border: 1px solid $accent-color;
+$alt-border: 1px solid $white;
+$todo-border-radius: 8px;
 
 
 *{
@@ -23,19 +25,43 @@ body{
     margin: 2em;
 }
 
+#form{
+    margin-bottom: 24px;
+}
+
 #taskNameInput{
     max-height: $form-height;
-    border-radius: $form-border-radius 0 0 $form-border-radius;
+    border-radius: $border-radius 0 0 $border-radius;
     padding: $form-padding;
-    border: 1px solid $accent-color;
+    border: $normal-border;
     background-color: $white;
 }
 
 #submitBtn{
     max-height: $form-height;
-    border-radius: 0 $form-border-radius $form-border-radius 0;
+    border-radius: 0 $border-radius $border-radius 0;
     padding: $form-padding;
-    border: 1px solid $white;
+    border: $alt-border;
     background-color: $accent-color;
     color: $white;
+}
+
+#list{
+    display: grid;
+    gap:12px;
+}
+
+.task{
+    border: $normal-border;
+    border-radius: $border-radius;
+    display: flex;
+    max-width: 250px;
+    padding: $form-padding;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.checkbox{
+    height: 20px;
+    width: 20px;
 }
