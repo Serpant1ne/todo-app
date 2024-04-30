@@ -4,12 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script src="script.js" defer></script>
+    <script src="dist/script.js" defer></script>
     <link rel="stylesheet" href="dist/main.css">
 
     <title>Todo Web</title>
 </head>
 <body>
-    
+    <div class="wrapper">
+        <form id="form">
+            <input type="text" name="taskName" id="taskNameInput">
+            <input type="submit" value="Add task">
+        </form>
+        <list id="list"></list>
+    </div>
 </body>
 </html>
