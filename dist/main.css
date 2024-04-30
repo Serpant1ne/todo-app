@@ -6,7 +6,7 @@
 
 body {
   background-color: #f8fafc;
-  font-family: "Poppins";
+  font-family: "Poppins", sans-serif;
 }
 
 .wrapper {

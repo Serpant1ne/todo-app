@@ -3,8 +3,12 @@ type Task = {
     done: boolean
 }
 
+function updateTask(task: Task): void {
+    task.done = !task.done
+}
+
 //function that draws the list of tasks in HTML
-function drawTasks(taskList: Task[], parent: HTMLElement): void {
+function renderTasks(taskList: Task[], parent: HTMLElement): void {
     //clearing parent list
     parent.innerHTML = ""
     taskList.forEach(task => {
@@ -30,10 +34,10 @@ function drawTasks(taskList: Task[], parent: HTMLElement): void {
 }
 
 //function that create task from the input with default not done
-function createTask(taskName: string): Task | null {
+function createTask(taskName: string, status?: boolean): Task | null {
     return {
         name: taskName,
-        done: false
+        done: status === undefined ? false : status,
     }
 }
 
@@ -49,11 +53,15 @@ function createTaskElement(task: Task): HTMLElement | null {
     let checkbox = document.createElement("input")
     checkbox.type = "checkbox"
     checkbox.checked = task.done
+    checkbox.addEventListener('change', (e) => {
+        task.done = !task.done
+    })
+
     return parent
 }
 
 //initialization function. It gets all the elements from index.html, adds functionality to form, 
-function initialize(): void {
+function initialize() {
     // creating variables
     let taskList: Task[] = []
 
@@ -70,11 +78,10 @@ function initialize(): void {
             console.log(taskNameInput.value)
             taskList.push(createTask(taskNameInput.value))
             taskNameInput.value = ""
-            drawTasks(taskList, list)
+            renderTasks(taskList, list)
         }
         
     })
-
 }
 
 initialize()

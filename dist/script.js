@@ -1,5 +1,8 @@
+function updateTask(task) {
+    task.done = !task.done;
+}
 //function that draws the list of tasks in HTML
-function drawTasks(taskList, parent) {
+function renderTasks(taskList, parent) {
     //clearing parent list
     parent.innerHTML = "";
     taskList.forEach(task => {
@@ -21,10 +24,10 @@ function drawTasks(taskList, parent) {
     });
 }
 //function that create task from the input with default not done
-function createTask(taskName) {
+function createTask(taskName, status) {
     return {
         name: taskName,
-        done: false
+        done: status === undefined ? false : status,
     };
 }
 //function to create task HTML element. Returns either element or null
@@ -36,6 +39,9 @@ function createTaskElement(task) {
     let checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.checked = task.done;
+    checkbox.addEventListener('change', (e) => {
+        task.done = !task.done;
+    });
     return parent;
 }
 //initialization function. It gets all the elements from index.html, adds functionality to form, 
@@ -53,7 +59,7 @@ function initialize() {
             console.log(taskNameInput.value);
             taskList.push(createTask(taskNameInput.value));
             taskNameInput.value = "";
-            drawTasks(taskList, list);
+            renderTasks(taskList, list);
         }
     });
 }
