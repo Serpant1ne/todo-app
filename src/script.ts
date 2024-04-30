@@ -64,8 +64,15 @@ function initialize(): void {
     let taskNameInput = document.getElementById("taskNameInput") as HTMLInputElement
     form.addEventListener("submit", (e) => {
         e.preventDefault()
-        taskList.push(createTask(taskNameInput.value))
-        drawTasks(taskList, list)
+        
+        // submit in list only when name is not empty
+        if(taskNameInput.value != ""){
+            console.log(taskNameInput.value)
+            taskList.push(createTask(taskNameInput.value))
+            taskNameInput.value = ""
+            drawTasks(taskList, list)
+        }
+        
     })
 
 }
