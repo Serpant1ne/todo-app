@@ -64,6 +64,9 @@ function createTaskElement(task: Task): HTMLElement | null {
     name.classList.add("taskName")
     name.innerHTML = task.name
 
+    let btnsWrapper = document.createElement("div")
+    btnsWrapper.classList.add("btnsWrapper")
+
     //add checkbox and it's functionality
     let checkbox = document.createElement("input")
     checkbox.type = "checkbox"
@@ -73,7 +76,17 @@ function createTaskElement(task: Task): HTMLElement | null {
     checkbox.addEventListener('change', () => {
         updateToDoStatus(task.id)
     })
-    parent.append(name, checkbox)
+
+    let deleteBtn = document.createElement("button")
+    deleteBtn.innerHTML = "delete"
+    deleteBtn.classList.add("deleteBtn")
+    deleteBtn.addEventListener('click', () => {
+        deleteToDo(task.id)
+        window.location.reload()
+    })
+
+    btnsWrapper.append(deleteBtn,checkbox)
+    parent.append(name, btnsWrapper)
 
     return parent
 }

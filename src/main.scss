@@ -3,12 +3,15 @@
 $white: #f8fafc;
 $black: #020617;
 $accent-color: #1e3a8a;
+$red: #dc2626;
 $form-height: 50px;
 $border-radius: 8px;
 $form-padding: 8px;
 $normal-border: 1px solid $accent-color;
 $alt-border: 1px solid $white;
+$delete-border: 1px solid $red; 
 $todo-border-radius: 8px;
+$btn-border-radius: 4px;
 
 
 *{
@@ -62,6 +65,19 @@ body{
 }
 
 .checkbox{
-    height: 20px;
-    width: 20px;
+    min-height: 100%;
+    min-width: 30px;
+}
+
+.btnsWrapper{
+    display: flex;
+    gap: 4px;
+    border-radius: $btn-border-radius;
+}
+
+.deleteBtn{
+    background-color: $white;
+    border: $delete-border;
+    border-radius: $btn-border-radius;
+    padding: 8px 10px;
 }
