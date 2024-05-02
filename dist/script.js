@@ -1,4 +1,4 @@
-//TODO add read and write to localstorage
+//TODO add tasks delete
 function WriteToLocalstorage(data, name) {
     localStorage.setItem(name, JSON.stringify(data));
 }
@@ -10,6 +10,15 @@ function updateToDoStatus(id) {
     taskList.forEach((task) => {
         if (task.id === id) {
             task.done = !task.done;
+        }
+    });
+    WriteToLocalstorage(taskList, "todoList");
+}
+function deleteToDo(id) {
+    const taskList = GetFromLocalStorage("todoList");
+    taskList.forEach((task, index) => {
+        if (task.id === id) {
+            taskList.splice(index, 1);
         }
     });
     WriteToLocalstorage(taskList, "todoList");

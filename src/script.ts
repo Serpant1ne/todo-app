@@ -24,6 +24,16 @@ function updateToDoStatus(id: number): void{
     WriteToLocalstorage(taskList, "todoList")
 }
 
+function deleteToDo(id: number){
+    const taskList = GetFromLocalStorage("todoList")
+    taskList.forEach((task, index) => {
+        if(task.id === id){
+            taskList.splice(index, 1)
+        }
+    })
+    WriteToLocalstorage(taskList, "todoList")
+}
+
 //function that draws the list of tasks in HTML
 function renderTasks(parent: HTMLElement): void {
     //clearing parent list
