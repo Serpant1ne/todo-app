@@ -49,6 +49,11 @@ body {
   align-items: center;
 }
 
+.taskName {
+  overflow: hidden; /* Hide overflowing content */
+  text-overflow: ellipsis;
+}
+
 .checkbox {
   min-height: 100%;
   min-width: 30px;

@@ -63,6 +63,12 @@ body{
     justify-content: space-between;
     align-items: center;
 }
+ 
+.taskName{
+    // white-space: nowrap;
+  overflow: hidden; /* Hide overflowing content */
+  text-overflow: ellipsis;
+}
 
 .checkbox{
     min-height: 100%;
@@ -81,3 +87,5 @@ body{
     border-radius: $btn-border-radius;
     padding: 8px 10px;
 }
+
+
