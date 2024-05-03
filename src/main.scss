@@ -30,11 +30,13 @@ body{
 
 #form{
     margin-bottom: 24px;
+    display: flex;
+    border-radius: $border-radius;
 }
 
 #taskNameInput{
     max-height: $form-height;
-    border-radius: $border-radius 0 0 $border-radius;
+    // border-radius: $border-radius 0 0 $border-radius;
     padding: $form-padding;
     border: $normal-border;
     background-color: $white;
@@ -42,7 +44,7 @@ body{
 
 #submitBtn{
     max-height: $form-height;
-    border-radius: 0 $border-radius $border-radius 0;
+    // border-radius: 0 $border-radius $border-radius 0;
     padding: $form-padding;
     border: $alt-border;
     background-color: $accent-color;
