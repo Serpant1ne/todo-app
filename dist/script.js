@@ -6,29 +6,29 @@ function GetFromLocalStorage(name) {
     return JSON.parse(localStorage.getItem(name));
 }
 function updateToDoStatus(id) {
-    const taskList = GetFromLocalStorage("todoList");
-    taskList.forEach((task) => {
+    const todoList = GetFromLocalStorage("todoList");
+    todoList.forEach((task) => {
         if (task.id === id) {
             task.done = !task.done;
         }
     });
-    WriteToLocalstorage(taskList, "todoList");
+    WriteToLocalstorage(todoList, "todoList");
 }
 function deleteToDo(id) {
-    const taskList = GetFromLocalStorage("todoList");
-    taskList.forEach((task, index) => {
+    const todoList = GetFromLocalStorage("todoList");
+    todoList.forEach((task, index) => {
         if (task.id === id) {
-            taskList.splice(index, 1);
+            todoList.splice(index, 1);
         }
     });
-    WriteToLocalstorage(taskList, "todoList");
+    WriteToLocalstorage(todoList, "todoList");
 }
 //function that draws the list of tasks in HTML
 function renderTasks(parent) {
     //clearing parent list
     parent.innerHTML = "";
-    const taskList = GetFromLocalStorage("todoList");
-    taskList.forEach(task => {
+    const todoList = GetFromLocalStorage("todoList");
+    todoList.forEach(task => {
         parent.append(createTaskElement(task));
     });
 }
@@ -63,7 +63,7 @@ function createTaskElement(task) {
     deleteBtn.classList.add("deleteBtn");
     deleteBtn.addEventListener('click', () => {
         deleteToDo(task.id);
-        window.location.reload();
+        renderTasks(document.getElementById("list"));
     });
     btnsWrapper.append(deleteBtn, checkbox);
     parent.append(name, btnsWrapper);
@@ -72,7 +72,7 @@ function createTaskElement(task) {
 //initialization function. It gets all the elements from index.html, adds functionality to form, 
 function initialize() {
     //get data from localStorage
-    let taskList = GetFromLocalStorage("todoList");
+    let todoList = GetFromLocalStorage("todoList");
     let list = document.getElementById("list");
     //Render task from localstorage
     renderTasks(list);
@@ -83,9 +83,10 @@ function initialize() {
         e.preventDefault();
         // submit in list only when name is not empty
         if (taskNameInput.value != "") {
-            taskList.push(createTask(taskNameInput.value));
+            todoList = GetFromLocalStorage("todoList");
+            todoList.push(createTask(taskNameInput.value));
             taskNameInput.value = "";
-            WriteToLocalstorage(taskList, "todoList");
+            WriteToLocalstorage(todoList, "todoList");
             renderTasks(list);
         }
     });
