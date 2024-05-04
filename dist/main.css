@@ -125,4 +125,21 @@ body {
   opacity: 1;
 }
 
+.redesignList {
+  list-style: none;
+}
+
+.redesignTask {
+  display: block;
+}
+.redesignTask::after {
+  position: relative;
+  display: block;
+  content: "";
+  width: 1000px;
+  border: 1px solid #000;
+  bottom: 12px;
+  left: 65px;
+}
+
 /*# sourceMappingURL=main.css.map */
