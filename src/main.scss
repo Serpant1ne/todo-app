@@ -7,6 +7,9 @@ $shadow-color: #0000002e;
 $gray: #ddd;
 $red: #dc2626;
 $green: #47dc26;
+
+
+
 $form-height: 50px;
 $border-radius: 8px;
 $form-padding: 24px;
@@ -15,6 +18,27 @@ $alt-border: 1px solid $white;
 $delete-border: 1px solid $red; 
 $todo-border-radius: 8px;
 $btn-border-radius: 4px;
+
+%todo-buttons{
+    border: 5px solid $gray;
+    border-radius: 1000px;
+    width: 70px;
+    height: 70px;
+    padding: 8px;
+    background-color: $white;
+    box-sizing: border-box;
+
+    transition: 0.3s border;
+}
+
+%todo-buttons-icons{
+    color: $gray;
+    fill: $gray;
+
+    opacity: 1;
+
+    transition: 0.3s border, fill;
+}
 
 
 *{
@@ -102,17 +126,8 @@ body{
 }
 
 .deleteBtn{
-    background-color: $white;
-    border: 5px solid $gray;
-    border-radius: 1000px;
-    padding: 8px;
-    width: 90px;
-    height: 90px;
-
-    transition: 0.3s border;
-
+    @extend %todo-buttons;
     &:hover{
-
         .svg{
             fill: $red
         }
@@ -147,25 +162,21 @@ body{
     }
   
     &::before {
-      top: 0;
-      left: 0;
-      width: inherit;
-      height: inherit;
-      border: 5px solid $gray;
-      border-radius: 10000px;
-      transition: border 0.3s;
+    @extend %todo-buttons;
+    top: 0;
+    left: 0;
+    padding: 0;
     }
   
     &::after {
-      top: 23px;
-      left: 21px;
-      width: 40px;
-      height: 20px;
-      border-bottom: 10px solid $green;
-      border-left: 10px solid $green;
+      top: 20px;
+      left: 18px;
+      width: 30px;
+      height: 15px;
+      @extend %todo-buttons-icons;
+      border-bottom: 5px solid $gray;
+      border-left: 5px solid $gray;
       transform: rotate(-45deg);
-      transition: opacity 0.3s;
-      opacity: 0;
     }
 
     &:hover::before,

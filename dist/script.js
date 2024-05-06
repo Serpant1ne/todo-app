@@ -60,8 +60,8 @@ function createTaskElement(task) {
     });
     let deleteBtn = document.createElement("button");
     let svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    svg.setAttribute("width", "50");
-    svg.setAttribute("height", "50");
+    svg.setAttribute("width", "40");
+    svg.setAttribute("height", "40");
     svg.classList.add("svg");
     fetch('./img/delete.svg')
         .then(response => response.text())

@@ -1,4 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+.checkbox::before, .deleteBtn {
+  border: 5px solid #ddd;
+  border-radius: 1000px;
+  width: 70px;
+  height: 70px;
+  padding: 8px;
+  background-color: #f8fafc;
+  box-sizing: border-box;
+  transition: 0.3s border;
+}
+
+.checkbox::after {
+  color: #ddd;
+  fill: #ddd;
+  opacity: 1;
+  transition: 0.3s border, fill;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -75,15 +93,6 @@ body {
   border-radius: 4px;
 }
 
-.deleteBtn {
-  background-color: #f8fafc;
-  border: 5px solid #ddd;
-  border-radius: 1000px;
-  padding: 8px;
-  width: 90px;
-  height: 90px;
-  transition: 0.3s border;
-}
 .deleteBtn:hover {
   border-color: #dc2626;
 }
@@ -115,22 +124,16 @@ body {
 .checkbox::before {
   top: 0;
   left: 0;
-  width: inherit;
-  height: inherit;
-  border: 5px solid #ddd;
-  border-radius: 10000px;
-  transition: border 0.3s;
+  padding: 0;
 }
 .checkbox::after {
-  top: 23px;
-  left: 21px;
-  width: 40px;
-  height: 20px;
-  border-bottom: 10px solid #47dc26;
-  border-left: 10px solid #47dc26;
+  top: 20px;
+  left: 18px;
+  width: 30px;
+  height: 15px;
+  border-bottom: 5px solid #ddd;
+  border-left: 5px solid #ddd;
   transform: rotate(-45deg);
-  transition: opacity 0.3s;
-  opacity: 0;
 }
 .checkbox:hover::before, .checkbox:hover::after {
   border-color: #020617;
