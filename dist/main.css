@@ -57,7 +57,7 @@ body {
 }
 
 #submitBtn {
-  border-radius: 500px;
+  border-radius: 1000px;
   border: none;
   height: 75px;
   min-width: 75px;
@@ -99,7 +99,6 @@ body {
 .btnsWrapper {
   display: flex;
   gap: 4px;
-  border-radius: 4px;
   align-items: center;
 }
 
@@ -117,8 +116,6 @@ body {
 
 .checkbox {
   background: none;
-  border: none;
-  border-radius: 0;
   outline: none;
   appearance: none;
   position: relative;
@@ -154,23 +151,6 @@ body {
 .checkbox:checked::after {
   opacity: 1;
   border-color: #47dc26;
-}
-
-.redesignList {
-  list-style: none;
-}
-
-.redesignTask {
-  display: block;
-}
-.redesignTask::after {
-  position: relative;
-  display: block;
-  content: "";
-  width: 1000px;
-  border: 1px solid #000;
-  bottom: 12px;
-  left: 65px;
 }
 
 /*# sourceMappingURL=main.css.map */

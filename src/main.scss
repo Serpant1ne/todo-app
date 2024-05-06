@@ -2,26 +2,21 @@
 
 $white: #f8fafc;
 $black: #020617;
-$accent-color: #1e3a8a;
-$shadow-color: #0000002e;
+$blue: #1e3a8a;
 $gray: #ddd;
 $red: #dc2626;
 $green: #47dc26;
-
-
+$shadow-color: #0000002e;
 
 $form-height: 50px;
 $border-radius: 8px;
 $form-padding: 24px;
-$normal-border: 5px solid $accent-color;
-$alt-border: 1px solid $white;
-$delete-border: 1px solid $red; 
-$todo-border-radius: 8px;
-$btn-border-radius: 4px;
+$border: 5px solid $blue;
+$btn-border-radius: 1000px;
 
 %todo-buttons{
     border: 5px solid $gray;
-    border-radius: 1000px;
+    border-radius: $btn-border-radius;
     width: 70px;
     height: 70px;
     padding: 8px;
@@ -61,7 +56,6 @@ body{
     display: flex;
     flex-direction: row;
     border-radius: $border-radius;
-    // border: $normal-border;
     justify-content: space-between;
     align-items: center;
     padding: 12px;
@@ -69,8 +63,6 @@ body{
 }
 
 #taskNameInput{
-    // max-height: $form-height;
-    // border-radius: $border-radius 0 0 $border-radius;
     min-width: 50%;
     max-width: 80%;
     padding: $form-padding;
@@ -86,14 +78,11 @@ body{
 }
 
 #submitBtn{
-    // max-height: $form-height;
-    // border-radius: 0 $border-radius $border-radius 0;
-    // padding: $form-padding;
-    border-radius: 500px;
+    border-radius: $btn-border-radius;
     border: none;
     height: 75px;
     min-width: 75px;
-    background-color: $accent-color;
+    background-color: $blue;
     color: $white;
     font-weight: bold;
     font-size: 72px;
@@ -110,7 +99,7 @@ body{
 }
 
 .task{
-    border: $normal-border;
+    border: $border;
     border-radius: $border-radius;
     display: flex;
     padding: $form-padding;
@@ -131,17 +120,16 @@ body{
 .btnsWrapper{
     display: flex;
     gap: 4px;
-    border-radius: $btn-border-radius;
     align-items: center;
 }
 
 .deleteBtn{
     @extend %todo-buttons;
     &:hover{
+        border-color: $red;
         .svg{
             fill: $red
         }
-        border-color: $red;
     }
 }
 
@@ -153,8 +141,6 @@ body{
 
 .checkbox {
     background: none;
-    border: none;
-    border-radius: 0;
     outline: none;
     appearance: none;
 
@@ -204,23 +190,5 @@ body{
     }
   }
 
-
-.redesignList{
-    list-style: none;
-
-}
-.redesignTask{
-    display: block;
-    &::after{
-        position: relative;
-        display: block;
-        content: "";
-        width: 1000px;
-        
-        border: 1px solid #000;
-        bottom: 12px;
-        left: 65px;
-    }
-}
 
 
