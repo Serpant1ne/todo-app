@@ -77,9 +77,23 @@ body {
 
 .deleteBtn {
   background-color: #f8fafc;
-  border: 1px solid #dc2626;
-  border-radius: 4px;
-  padding: 8px 10px;
+  border: 5px solid #ddd;
+  border-radius: 1000px;
+  padding: 8px;
+  width: 90px;
+  height: 90px;
+  transition: 0.3s border;
+}
+.deleteBtn:hover {
+  border-color: #dc2626;
+}
+.deleteBtn:hover .svg {
+  fill: #dc2626;
+}
+
+.svg {
+  fill: #ddd;
+  transition: 0.3s fill;
 }
 
 .checkbox {
@@ -104,7 +118,7 @@ body {
   width: inherit;
   height: inherit;
   border: 5px solid #ddd;
-  border-radius: 5px;
+  border-radius: 10000px;
   transition: border 0.3s;
 }
 .checkbox::after {
@@ -118,11 +132,15 @@ body {
   transition: opacity 0.3s;
   opacity: 0;
 }
+.checkbox:hover::before, .checkbox:hover::after {
+  border-color: #020617;
+}
 .checkbox:checked:before {
   border-color: #47dc26;
 }
 .checkbox:checked::after {
   opacity: 1;
+  border-color: #47dc26;
 }
 
 .redesignList {

@@ -78,7 +78,21 @@ function createTaskElement(task: Task): HTMLElement | null {
     })
 
     let deleteBtn = document.createElement("button")
-    deleteBtn.innerHTML = "delete"
+    let svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute("width", "50")
+    svg.setAttribute("height", "50")
+    svg.classList.add("svg")
+    fetch('./img/delete.svg')
+  .then(response => response.text())
+  .then(svgContent => {
+    svg.innerHTML = svgContent;
+  })
+  .catch(error => {
+    console.error("Error fetching SVG:", error);
+  });
+
+  // Append the SVG to the button
+deleteBtn.appendChild(svg);
     deleteBtn.classList.add("deleteBtn")
     deleteBtn.addEventListener('click', () => {
         deleteToDo(task.id)

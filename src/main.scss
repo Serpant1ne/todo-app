@@ -4,6 +4,7 @@ $white: #f8fafc;
 $black: #020617;
 $accent-color: #1e3a8a;
 $shadow-color: #0000002e;
+$gray: #ddd;
 $red: #dc2626;
 $green: #47dc26;
 $form-height: 50px;
@@ -102,10 +103,28 @@ body{
 
 .deleteBtn{
     background-color: $white;
-    border: $delete-border;
-    border-radius: $btn-border-radius;
-    padding: 8px 10px;
+    border: 5px solid $gray;
+    border-radius: 1000px;
+    padding: 8px;
+    width: 90px;
+    height: 90px;
+
+    transition: 0.3s border;
+
+    &:hover{
+
+        .svg{
+            fill: $red
+        }
+        border-color: $red;
+    }
 }
+
+.svg{
+    fill: $gray;
+    transition: 0.3s fill;
+}
+
 
 .checkbox {
     background: none;
@@ -132,8 +151,8 @@ body{
       left: 0;
       width: inherit;
       height: inherit;
-      border: 5px solid #ddd;
-      border-radius: 5px;
+      border: 5px solid $gray;
+      border-radius: 10000px;
       transition: border 0.3s;
     }
   
@@ -149,14 +168,21 @@ body{
       opacity: 0;
     }
 
+    &:hover::before,
+    &:hover::after{
+        border-color: $black;
+    }
+
     &:checked:before{
         border-color: $green;
     }
   
     &:checked::after {
       opacity: 1;
+      border-color: $green;
     }
   }
+
 
 .redesignList{
     list-style: none;
@@ -169,6 +195,7 @@ body{
         display: block;
         content: "";
         width: 1000px;
+        
         border: 1px solid #000;
         bottom: 12px;
         left: 65px;
