@@ -45,7 +45,7 @@ function createTaskElement(task) {
     //creating parent element
     const parent = document.createElement("li");
     parent.classList.add("task");
-    let name = document.createElement("h3");
+    let name = document.createElement("span");
     name.classList.add("taskName");
     name.innerHTML = task.name;
     let btnsWrapper = document.createElement("div");

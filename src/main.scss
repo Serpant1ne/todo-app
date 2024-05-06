@@ -57,9 +57,9 @@ body{
 
 
 #form{
-    max-width: 80%;
     margin: 0 auto 24px auto;
     display: flex;
+    flex-direction: row;
     border-radius: $border-radius;
     // border: $normal-border;
     justify-content: space-between;
@@ -71,12 +71,18 @@ body{
 #taskNameInput{
     // max-height: $form-height;
     // border-radius: $border-radius 0 0 $border-radius;
+    min-width: 50%;
     max-width: 80%;
     padding: $form-padding;
     border: none;
     background-color: $white;
-    font-size: 64px;
+    font-size: 32px;
     font-weight: bold;
+    margin-right: 24px;
+
+    &:focus-visible{
+        outline: none;
+    }
 }
 
 #submitBtn{
@@ -86,7 +92,7 @@ body{
     border-radius: 500px;
     border: none;
     height: 75px;
-    width: 75px;
+    min-width: 75px;
     background-color: $accent-color;
     color: $white;
     font-weight: bold;
@@ -110,19 +116,23 @@ body{
     padding: $form-padding;
     justify-content: space-between;
     align-items: center;
-    font-size: 48px;
+    font-size: 36px;
+    flex-direction: row;
+    min-width: 30%;
 }
  
 .taskName{
-    // white-space: nowrap;
+    white-space: nowrap;
   overflow: hidden; /* Hide overflowing content */
   text-overflow: ellipsis;
+  font-weight: bold;
 }
 
 .btnsWrapper{
     display: flex;
     gap: 4px;
     border-radius: $btn-border-radius;
+    align-items: center;
 }
 
 .deleteBtn{
@@ -150,8 +160,8 @@ body{
 
 
     position: relative;
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
     cursor: pointer;
   
     &::before,

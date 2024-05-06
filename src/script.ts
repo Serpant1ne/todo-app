@@ -60,7 +60,7 @@ function createTaskElement(task: Task): HTMLElement | null {
     const parent = document.createElement("li")
     parent.classList.add("task")
 
-    let name = document.createElement("h3")
+    let name = document.createElement("span")
     name.classList.add("taskName")
     name.innerHTML = task.name
 
